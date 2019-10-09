@@ -1,0 +1,139 @@
+﻿@using AmbienteWeb.Proyecto.Carpooling.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="single-page single-pageimage construction-bg cover-image " data-image-src="../Content/assets/img/weather1.jpeg">
+            <div class="row">
+                <div class="col-lg-6 col-xl-6">
+                    <div class="mt-xl-5">
+                        <div class="bg-transparent carouselTestimonial1 p-4 mx-auto mt-xl-5 mb-3 w-600">
+                            <div id="carouselTestimonial" class="carousel carousel-testimonial slide" data-ride="carousel">
+                                <ol class="carousel-indicators carousel-indicators1">
+                                    <li data-target="#carouselTestimonial" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselTestimonial" data-slide-to="1"></li>
+                                    <li data-target="#carouselTestimonial" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item text-center active">
+                                        <img src="../Content/assets/img/brand/VAN.png" class="mb-2  mt-lg-0 " alt="logo">
+                                        <p class="m-0 pt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, consectetur adipiscing elit varius quam at, luctus dui. Mauris magna metus consectetur adipiscing elit.</p>
+                                    </div>
+                                    <div class="carousel-item text-center">
+                                        <img src="../Content/assets/img/brand/VAN.png" class="mb-2  mt-lg-0 " alt="logo">
+                                        <p class="m-0 pt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, consectetur adip varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel.</p>
+                                    </div>
+                                    <div class="carousel-item text-center">
+                                        <img src="../Content/assets/img/brand/VAN.png" class="mb-2  mt-lg-0 " alt="logo">
+                                        <p class="m-0 pt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, consectetur adipiscing elit consectetur adipiscing elit luctus dui. Mauris magna metus.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-6">
+                    <div class="login-sec">
+                        <div class=" text-center card mb-0">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "card-body", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <h4 class="mb-3">Login</h4>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "exampleInputEmail1", placeholder = "Enter email" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "exampleInputPassword1", placeholder = "Password" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="checkbox">
+                                        <div class="custom-checkbox custom-control">
+
+                                            @Html.CheckBoxFor(m => m.RememberMe, new { data__checkboxes = "mygroup", @class = "custom-control-input", id = "checkbox-1" })
+                                            @Html.LabelFor(m => m.RememberMe, "Check me Out", new { @class = "custom-control-label" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit mt-3 mb-3">
+                                    <input type="submit" value="Login" class="btn btn-primary btn-block" />
+                                </div>
+                                <p class="mb-2"><a href="forgot.html">Forgot Password</a></p>
+                                <p class="text-muted mb-0">Don't have account?<a href="register.html" class="text-primary ml-1">Sign UP</a></p>
+                            }
+                            <div class="flex-c-m text-center mb-4">
+                                <button type="button" class="btn btn-facebook"><i class="fa fa-facebook mr-2"></i>Facebook</button>
+                                <button type="button" class="btn btn-google"><i class="fa fa-google mr-2"></i>Google</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Register as a new user", "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
+    -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
