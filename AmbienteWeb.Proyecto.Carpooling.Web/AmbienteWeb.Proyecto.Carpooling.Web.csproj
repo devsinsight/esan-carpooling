@@ -210,6 +210,7 @@
     <Content Include="Content\assets\img\brand\logo-white.png" />
     <Content Include="Content\assets\img\brand\logo.png" />
     <Content Include="Content\assets\img\brand\van-blue.png" />
+    <Content Include="Content\assets\img\brand\van-logo.png" />
     <Content Include="Content\assets\img\brand\van.png" />
     <Content Include="Content\assets\img\browsers\chrome.png" />
     <Content Include="Content\assets\img\browsers\firefox.png" />
