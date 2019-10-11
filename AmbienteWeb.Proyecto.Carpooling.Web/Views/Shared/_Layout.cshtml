@@ -4,14 +4,52 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title -Carpooling</title>
+    <title>@ViewBag.Title - Carpooling</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="bg-light">
     <div id="app" class="page">
         <section class="section section-2">
-            @RenderBody()
+            <div class="container">
+                <div class="row">
+                    <div class="single-page construction-bg cover-image " data-image-src="../Content/assets/img/weather1.jpeg">
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-6 align-self-center">
+                                <div class="mt-xl-3 mt-lg-3">
+                                    <div class="bg-transparent carouselTestimonial1 p-4 mx-auto mt-xl-5 mb-3 w-600">
+                                        <div id="carouselTestimonial" class="carousel carousel-testimonial" data-ride="carousel">
+                                            <ol class="carousel-indicators carousel-indicators1">
+                                                <li data-target="#carouselTestimonial" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carouselTestimonial" data-slide-to="1"></li>
+                                                <li data-target="#carouselTestimonial" data-slide-to="2"></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item text-center active">
+                                                    <img src="@Url.Content("~/Content/assets/img/brand/van-logo.png")" height="68" class="mb-2  mt-lg-0 " alt="carpooling">
+                                                    <p class="m-0 pt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, consectetur adipiscing elit varius quam at, luctus dui. Mauris magna metus consectetur adipiscing elit.</p>
+                                                </div>
+                                                <div class="carousel-item text-center">
+                                                    <img src="@Url.Content("~/Content/assets/img/brand/van-logo.png")" height="68" class="mb-2  mt-lg-0 " alt="carpooling">
+                                                    <p class="m-0 pt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, consectetur adip varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel.</p>
+                                                </div>
+                                                <div class="carousel-item text-center">
+                                                    <img src="@Url.Content("~/Content/assets/img/brand/van-logo.png")" height="68" class="mb-2  mt-lg-0 " alt="carpooling">
+                                                    <p class="m-0 pt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, consectetur adipiscing elit consectetur adipiscing elit luctus dui. Mauris magna metus.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 

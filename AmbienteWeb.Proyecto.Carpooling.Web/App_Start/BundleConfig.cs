@@ -28,7 +28,9 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web
                         "~/Content/assets/js/scripts.js",
                         //"~/Content/assets/js/dashboard.js",
                         "~/Content/assets/plugins/echarts/echarts.js",
-                        "~/Content/assets/js/othercharts.js"
+                        "~/Content/assets/js/othercharts.js",
+                        "~/Content/assets/plugins/Datatable/js/jquery.dataTables.js",
+                        "~/Content/assets/plugins/Datatable/js/dataTables.bootstrap4.js"
                         ));
 
             // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información. De este modo, estará
@@ -48,6 +50,7 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web
                       "~/Content/assets/plugins/morris/morris.css",
                       "~/Content/assets/plugins/chartist/chartist.css",
                       "~/Content/assets/plugins/chartist/chartist-plugin-tooltip.css",
+                      "~/Content/assets/plugins/Datatable/css/dataTables.bootstrap4.css",
                       "~/Content/site.css"));
         }
     }
