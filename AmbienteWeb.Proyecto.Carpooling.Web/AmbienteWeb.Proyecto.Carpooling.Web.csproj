@@ -173,6 +173,9 @@
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\VehiculoController.cs" />
     <Compile Include="Areas\Administrator\ViewModels\ContactoViewModel.cs" />
+    <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
+    <Compile Include="Areas\Company\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +185,7 @@
     <Compile Include="Models\Extensions\IdentityExtensions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SeedDataInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -4540,6 +4544,10 @@
     <Content Include="Areas\Administrator\Views\Empresa\RegistroContactos.cshtml" />
     <Content Include="Areas\Administrator\Views\Empresa\Contacto.cshtml" />
     <Content Include="Areas\Administrator\Views\Empresa\ListaContactos.cshtml" />
+    <Content Include="Areas\Company\Views\web.config" />
+    <Content Include="Areas\Employee\Views\web.config" />
+    <Content Include="Areas\Company\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Company\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4590,6 +4598,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Company\Models\" />
+    <Folder Include="Areas\Employee\Controllers\" />
+    <Folder Include="Areas\Employee\Models\" />
+    <Folder Include="Areas\Employee\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Administrator.Controllers
+namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.Controllers
 {
-    public class ConductorController : Controller
+    public class HomeController : Controller
     {
-        [Authorize(Roles = "ADMINISTRATOR")]
+        [Authorize(Roles = "COMPANY")]
         public ActionResult Index()
         {
             return View();

@@ -26,6 +26,8 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Models
         public ApplicationDbContext()
             : base("SecurityConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new SeedDataInitializer());
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -17,15 +17,17 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private RoleManager<IRole> _roleManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, RoleManager<IRole> roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -383,6 +385,11 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult LogOut() {
+            return View();
+        }
+
         //
         // POST: /Account/LogOff
         [HttpPost]
@@ -390,6 +397,7 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            
             return RedirectToAction("Login", "Account");
         }
 
@@ -448,19 +456,20 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
                 return Redirect(returnUrl);
             }
 
-            if (User.IsInRole("Administrator")) 
+            if (User.IsInRole("ADMINISTRATOR")) 
             {
                 return RedirectToAction("Index", "Administrator/Home");
             } 
-            else if (User.IsInRole("Empleado"))
+            else if (User.IsInRole("EMPLOYEE"))
             {
 
             }
-            else if (User.IsInRole("Empresa"))
-            { 
-            
+            else if (User.IsInRole("COMPANY"))
+            {
+                return RedirectToAction("Index", "Company/Home");
             }
-            return RedirectToAction("Index", "Administrator/Home");
+
+            return null;
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

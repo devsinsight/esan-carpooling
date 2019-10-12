@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Administrator.Controllers
 {
-    [Authorize()]
+    [Authorize(Roles = "ADMINISTRATOR")]
     public class HomeController : Controller
     {
         // GET: Administrator/Home
