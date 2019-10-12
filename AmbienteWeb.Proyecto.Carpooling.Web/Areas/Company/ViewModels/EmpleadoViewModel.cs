@@ -11,6 +11,8 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.ViewModels
         public int? Id { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
+        public string Telefono { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         [Required]
         public string DNI { get; set; }
