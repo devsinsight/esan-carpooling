@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Registro de Empleados";
+    Layout = "~/Areas/Company/Views/Shared/_Layout.cshtml";
+}
+<section class="section">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")" class="text-muted">Home</a></li>
+        <li class="breadcrumb-item active text-" aria-current="page">Registro de Empleados</li>
+    </ol>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Registro de Empleados</h4>
+
+                </div>
+                <div class="card-body">
+
+                    <button class="btn btn-danger m-t-5 m-b-5" id="agregarEmpleado">Agregar Empleado</button>
+                    <hr />
+                    <div id="listaContactos" class="table-responsive">
+                        @Html.Partial("ListaEmpleados")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="employee-container"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/ajax-unobtrusive")
+
+    <script type="text/javascript">
+        function OnComplete(response) {
+            $('#empleadoModal').modal('hide');
+            $('#empleadosDataTable').DataTable();
+        }
+
+        function OnSuccess(data) {
+            $("#employee-container").html(data);
+            $.validator.unobtrusive.parse("#frmEmpleado");
+            $('#empleadoModal').modal('show');
+        }
+
+        $(function (e) {
+            $('#empleadosDataTable').DataTable();
+
+            //AGREGAR EMPLEADO
+            $('#agregarEmpleado').on('click', function () {
+                $.ajax({
+                    url: "@Url.Action("Empleado","Empleado")",
+                    method: "POST",
+                    success: function (data) {
+                       OnSuccess(data)
+                    }
+                });
+            });
+
+            //EDITAR EMPLEADO
+            $('#listaContactos').on('click', '.editarEmpleado', function () {
+                $.ajax({
+                    url: "@Url.Action("EditarEmpleado","Empleado")",
+                    method: "POST",
+                    data: { id: $(this).data("employee") },
+                    success: function (data) {
+                        OnSuccess(data)
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+

@@ -174,7 +174,9 @@
     <Compile Include="Areas\Administrator\Controllers\VehiculoController.cs" />
     <Compile Include="Areas\Administrator\ViewModels\ContactoViewModel.cs" />
     <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
+    <Compile Include="Areas\Company\Controllers\EmpleadoController.cs" />
     <Compile Include="Areas\Company\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Company\ViewModels\EmpleadoViewModel.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -4548,6 +4550,9 @@
     <Content Include="Areas\Employee\Views\web.config" />
     <Content Include="Areas\Company\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Company\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Empleado\Empleado.cshtml" />
+    <Content Include="Areas\Company\Views\Empleado\ListaEmpleados.cshtml" />
+    <Content Include="Areas\Company\Views\Empleado\RegistroEmpleados.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4599,6 +4604,7 @@
   <ItemGroup>
     <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Areas\Company\Models\" />
+    <Folder Include="Areas\Company\Views\Empleados\" />
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
     <Folder Include="Areas\Employee\Views\Shared\" />

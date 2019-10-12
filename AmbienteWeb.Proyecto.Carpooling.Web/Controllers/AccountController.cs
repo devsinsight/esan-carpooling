@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AmbienteWeb.Proyecto.Carpooling.Web.Models;
+using System.Security.Principal;
 
 namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
 {
@@ -23,11 +24,10 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, RoleManager<IRole> roleManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
-            _roleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -81,7 +81,7 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToLocal(returnUrl, model.Email);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -385,11 +385,6 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult LogOut() {
-            return View();
-        }
-
         //
         // POST: /Account/LogOff
         [HttpPost]
@@ -397,7 +392,6 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            
             return RedirectToAction("Login", "Account");
         }
 
@@ -449,27 +443,32 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
             }
         }
 
-        private ActionResult RedirectToLocal(string returnUrl)
+        private ActionResult RedirectToLocal(string returnUrl, string email = "")
         {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
+            //if (Url.IsLocalUrl(returnUrl))
+            //{
+            //    return Redirect(returnUrl);
+            //}
+
+            if (!string.IsNullOrEmpty(email)) { 
+                var user = UserManager.Users.First(u => u.Email == email);
+                var role = UserManager.GetRoles(user.Id)[0];
+
+                if (role == "ADMINISTRATOR") 
+                {
+                    return RedirectToAction("Index", "Administrator/Home");
+                } 
+                else if (role == "EMPLOYEE")
+                {
+
+                }
+                else if (role == "COMPANY")
+                {
+                    return RedirectToAction("Index", "Company/Home");
+                }
             }
 
-            if (User.IsInRole("ADMINISTRATOR")) 
-            {
-                return RedirectToAction("Index", "Administrator/Home");
-            } 
-            else if (User.IsInRole("EMPLOYEE"))
-            {
-
-            }
-            else if (User.IsInRole("COMPANY"))
-            {
-                return RedirectToAction("Index", "Company/Home");
-            }
-
-            return null;
+            return RedirectToAction("Login","Account");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
