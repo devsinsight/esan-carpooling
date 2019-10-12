@@ -41,6 +41,9 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ajax-unobtrusive").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/assets/plugins/bootstrap/css/bootstrap.min.css",
                       "~/Content/assets/css/icons.css",

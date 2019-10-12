@@ -1,18 +1,18 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Registro de Empresas";
     Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
 }
 <section class="section">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")" class="text-muted">Home</a></li>
-        <li class="breadcrumb-item active text-" aria-current="page">Empresas</li>
+        <li class="breadcrumb-item active text-" aria-current="page">Registro de Empresas</li>
     </ol>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Gestión de Empresas</h4>
+                    <h4>Registro de Empresas</h4>
                     
                 </div>
                 <div class="card-body">
@@ -26,7 +26,6 @@
                                     <th class="wd-15p">Nombre Comercial</th>
                                     <th class="wd-15p">RUC</th>
                                     <th class="wd-20p">Página Web</th>
-                                    <th class="wd-15p">Email de Contacto</th>
                                     <th class="wd-10p">Editar</th>
                                     <th class="wd-25p">Deshabilitar</th>
                                 </tr>
@@ -36,7 +35,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -44,7 +42,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -52,7 +49,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -60,7 +56,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -68,7 +63,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -76,7 +70,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -84,7 +77,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -92,7 +84,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -100,7 +91,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -108,7 +98,6 @@
                                     <td>BELATRIX PERU S.A.C.</td>
                                     <td>20392810316</td>
                                     <td>http://www.belatrixsf.com</td>
-                                    <td>admin@belatrixsf.com</td>
                                     <td><button class="btn btn-action btn-primary">Editar</button></td>
                                     <td><button class="btn btn-action btn-secondary">Deshabilitar</button></td>
                                 </tr>
@@ -151,14 +140,7 @@
                             <input type="text" class="form-control" id="paginaWeb" placeholder="Página Web">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="RUC" class="col-md-3 col-form-label">Email de Contacto</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="emailContacto" placeholder="Email de Contacto">
-                        </div>
-                    </div>
                 </form>
-
             </div>
 
             <div class="modal-footer">
@@ -166,7 +148,7 @@
                 <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
-    </div><!-- modal-dialog -->
+    </div>
 </div>
 
 @section Scripts {
