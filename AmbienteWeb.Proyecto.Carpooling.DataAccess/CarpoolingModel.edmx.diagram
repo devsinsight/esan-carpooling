@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a4e5b0ba08df4afcb33edfc2a7db2bc6" Name="Diagram1">
+        <EntityTypeShape EntityType="CarpoolingDbModel.Empresa" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpoolingDbModel.Pago" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarpoolingDbModel.TipoPago" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="CarpoolingDbModel.FK__Empresa__PagoId__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="CarpoolingDbModel.FK__Pago__TipoPagoId__398D8EEE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CarpoolingDbModel.Empleado" Width="1.5" PointX="7.5" PointY="1.125" />
+        <AssociationConnector Association="CarpoolingDbModel.FK__Empleado__Empres__3F466844" />
+        <EntityTypeShape EntityType="CarpoolingDbModel.Chofer" Width="1.5" PointX="0.75" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

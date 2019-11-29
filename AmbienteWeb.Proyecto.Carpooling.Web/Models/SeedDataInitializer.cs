@@ -11,20 +11,21 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Models
             context.Roles.Add(new IdentityRole { Name = "ADMINISTRATOR" });
             context.Roles.Add(new IdentityRole { Name = "COMPANY" });
             context.Roles.Add(new IdentityRole { Name = "EMPLOYEE" });
+            context.Roles.Add(new IdentityRole { Name = "DRIVER" });
 
             ApplicationUserManager manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
             ApplicationUser administrator = new ApplicationUser
             {
-                FirstName = "José Luis",
-                LastName = "Olivares Rojas",
+                RazonSocial = "Org Company",
+                RUC = "12345678910",
                 Email = "admin@admin.com",
                 UserName = "admin@admin.com"
             };
 
             ApplicationUser company = new ApplicationUser
             {
-                FirstName = "José Luis",
-                LastName = "Olivares Rojas",
+                RazonSocial = "Org Company",
+                RUC = "12345678910",
                 Email = "company@company.com",
                 UserName = "company@company.com"
             };

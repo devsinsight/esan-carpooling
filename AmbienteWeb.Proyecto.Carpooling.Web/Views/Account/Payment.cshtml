@@ -1,0 +1,43 @@
+﻿@model AmbienteWeb.Proyecto.Carpooling.Web.Models.PaymentViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="wrapper wrapper2">
+    @using (Html.BeginForm("Payment", "Account", FormMethod.Post, new { @class = "card-body", role = "form" }))
+    {
+        <h3>Register</h3>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.RazonSocial, new { @class = "form-control", placeholder = "Razón Social" })
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.RUC, new { @class = "form-control", id = "exampleInputEmail1", placeholder = "RUC" })
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "exampleInputEmail1", placeholder = "Email" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+        </div>
+        <div class="submit">
+            <input type="submit" class="btn btn-primary btn-block" value="Siguiente" />
+        </div>
+        <p class="text-muted mb-0">Ya tienes una cuenta?<a href="@Url.Action("Login", "Account")" class="text-primary ml-1">Sign In</a></p>
+
+    }
+    @*<div class="flex-c-m text-center mb-3">
+            <div class="flex-c-m text-center mb-4">
+                <button type="button" class="btn btn-facebook"><i class="fa fa-facebook mr-2"></i>Facebook</button>
+                <button type="button" class="btn btn-google"><i class="fa fa-google mr-2"></i>Google</button>
+            </div>
+        </div>*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

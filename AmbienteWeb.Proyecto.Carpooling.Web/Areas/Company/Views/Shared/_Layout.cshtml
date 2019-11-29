@@ -30,7 +30,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <img src="@Url.Content("~/Content/assets/img/avatar/avatar-2.jpeg")" alt="profile-user" class="rounded-circle w-32">
-                            <div class="d-sm-none d-lg-inline-block"> @User.Identity.GetUserFirstName()</div>
+                            <div class="d-sm-none d-lg-inline-block"> @User.Identity.GetRazonSocial()</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item has-icon">
@@ -53,7 +53,7 @@
                         <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
                             <img alt="image" src="@Url.Content("~/Content/assets/img/avatar/avatar-1.jpeg")" class=" avatar-md rounded-circle">
                             <span class="ml-2 d-lg-block">
-                                <span class="text-dark app-sidebar__user-name mt-5"> @User.Identity.GetUserFirstName()</span><br>
+                                <span class="text-dark app-sidebar__user-name mt-5"> @User.Identity.GetRazonSocial()</span><br>
                                 <span class="text-muted app-sidebar__user-name text-sm">Administrator</span>
                             </span>
                         </a>

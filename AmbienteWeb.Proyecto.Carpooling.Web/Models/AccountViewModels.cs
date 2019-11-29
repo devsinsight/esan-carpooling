@@ -65,12 +65,14 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        [Display(Name = "Razón Social")]
+        public string RazonSocial { get; set; }
 
         [Required]
-        [Display(Name = "LastName")]
-        public string LastName { get; set; }
+        [MaxLength(11)]
+        [MinLength(11)]
+        [Display(Name = "RUC")]
+        public string RUC { get; set; }
 
         [Required]
         [EmailAddress]

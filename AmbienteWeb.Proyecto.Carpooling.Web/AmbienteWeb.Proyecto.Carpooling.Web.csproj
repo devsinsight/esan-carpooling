@@ -45,16 +45,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1.3\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleApi, Version=3.9.3.0, Culture=neutral, PublicKeyToken=781851e053b06e74, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleApi.3.9.3\lib\net45\GoogleApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -101,6 +113,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -168,18 +183,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
-    <Compile Include="Areas\Administrator\Controllers\ConductorController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\ChoferController.cs" />
     <Compile Include="Areas\Administrator\Controllers\EmpresaController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\VehiculoController.cs" />
     <Compile Include="Areas\Administrator\ViewModels\ContactoViewModel.cs" />
+    <Compile Include="Areas\Administrator\ViewModels\ChoferViewModel.cs" />
+    <Compile Include="Areas\Chofer\ChoferAreaRegistration.cs" />
     <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
     <Compile Include="Areas\Company\Controllers\EmpleadoController.cs" />
+    <Compile Include="Areas\Company\Controllers\EmpresaController.cs" />
     <Compile Include="Areas\Company\Controllers\HomeController.cs" />
     <Compile Include="Areas\Company\ViewModels\EmpleadoViewModel.cs" />
+    <Compile Include="Areas\Company\ViewModels\EmpresaViewModel.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +205,8 @@
     <Compile Include="Models\Extensions\IdentityExtensions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MapViewModel.cs" />
+    <Compile Include="Models\PaymentViewModel.cs" />
     <Compile Include="Models\SeedDataInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -4542,7 +4562,6 @@
     <Content Include="Areas\Administrator\Views\Home\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Empresa\RegistroEmpresas.cshtml" />
     <Content Include="Areas\Administrator\Views\Vehiculo\Index.cshtml" />
-    <Content Include="Areas\Administrator\Views\Conductor\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Empresa\RegistroContactos.cshtml" />
     <Content Include="Areas\Administrator\Views\Empresa\Contacto.cshtml" />
     <Content Include="Areas\Administrator\Views\Empresa\ListaContactos.cshtml" />
@@ -4553,6 +4572,12 @@
     <Content Include="Areas\Company\Views\Empleado\Empleado.cshtml" />
     <Content Include="Areas\Company\Views\Empleado\ListaEmpleados.cshtml" />
     <Content Include="Areas\Company\Views\Empleado\RegistroEmpleados.cshtml" />
+    <Content Include="Areas\Company\Views\Empresa\EditarEmpresa.cshtml" />
+    <Content Include="Areas\Chofer\Views\web.config" />
+    <Content Include="Areas\Chofer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrator\Views\Chofer\Chofer.cshtml" />
+    <Content Include="Areas\Administrator\Views\Chofer\ListaChoferes.cshtml" />
+    <Content Include="Areas\Administrator\Views\Chofer\RegistroChoferes.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4600,11 +4625,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Map.cshtml" />
+    <Content Include="Views\Account\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Chofer\Controllers\" />
+    <Folder Include="Areas\Chofer\Models\" />
     <Folder Include="Areas\Company\Models\" />
-    <Folder Include="Areas\Company\Views\Empleados\" />
+    <Folder Include="Areas\Company\Views\Chofer\" />
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
     <Folder Include="Areas\Employee\Views\Shared\" />
@@ -4621,6 +4650,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AmbienteWeb.Proyecto.Carpooling.BusinessLogic\AmbienteWeb.Proyecto.Carpooling.BusinessLogic.csproj">
+      <Project>{62066b2a-3090-46e1-9cfa-7aec3a1737a5}</Project>
+      <Name>AmbienteWeb.Proyecto.Carpooling.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AmbienteWeb.Proyecto.Carpooling.DataAccess\AmbienteWeb.Proyecto.Carpooling.DataAccess.csproj">
+      <Project>{aca0d235-95ac-4747-908f-809667c80536}</Project>
+      <Name>AmbienteWeb.Proyecto.Carpooling.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

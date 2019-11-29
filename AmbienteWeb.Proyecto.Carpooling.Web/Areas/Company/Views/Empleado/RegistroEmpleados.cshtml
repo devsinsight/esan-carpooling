@@ -19,8 +19,8 @@
 
                     <button class="btn btn-danger m-t-5 m-b-5" id="agregarEmpleado">Agregar Empleado</button>
                     <hr />
-                    <div id="listaContactos" class="table-responsive">
-                        @Html.Partial("ListaEmpleados")
+                    <div id="listaEmpleados" class="table-responsive">
+                        @Html.Partial("ListaEmpleados", (IEnumerable<AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.ViewModels.EmpleadoViewModel>)ViewBag.ListaEmpleados)
                     </div>
                 </div>
             </div>
@@ -61,11 +61,12 @@
             });
 
             //EDITAR EMPLEADO
-            $('#listaContactos').on('click', '.editarEmpleado', function () {
+            $('#listaEmpleados').on('click', '.editarEmpleado', function () {
+                var id = $(this).data("employee");
                 $.ajax({
                     url: "@Url.Action("EditarEmpleado","Empleado")",
                     method: "POST",
-                    data: { id: $(this).data("employee") },
+                    data: { id: id },
                     success: function (data) {
                         OnSuccess(data)
                     }

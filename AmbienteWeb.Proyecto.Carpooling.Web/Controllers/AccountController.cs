@@ -1,15 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using AmbienteWeb.Proyecto.Carpooling.BusinessLogic;
+using AmbienteWeb.Proyecto.Carpooling.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using AmbienteWeb.Proyecto.Carpooling.Web.Models;
-using System.Security.Principal;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
 {
@@ -18,13 +16,13 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private RoleManager<IRole> _roleManager;
+        private EmpresaBusinessLogic _empresaBusinessLogic = new EmpresaBusinessLogic();
 
-        public AccountController()
-        {
-        }
+        public AccountController() { }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(
+            ApplicationUserManager userManager,
+            ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -151,11 +149,15 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { RazonSocial = model.RazonSocial, RUC = model.RUC, UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    UserManager.AddToRole(user.Id.ToString(), "COMPANY");
+
+                    _empresaBusinessLogic.CrearEmpresa(model.RazonSocial, model.RUC, new Guid(user.Id));
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -163,13 +165,31 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Map", "Account", new { user.Id });
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        public ActionResult Map(Guid Id) {
+            ViewBag.Id = Id;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Map(MapViewModel model)
+        {
+            _empresaBusinessLogic.ActualizarEmpresaPorUserId(model.Id, model.Longitude, model.Latitude);
+
+            return Json(new { success = true});
+        }
+
+        [HttpGet]
+        public ActionResult Payment(PaymentViewModel model) {
+            return View();
         }
 
         //

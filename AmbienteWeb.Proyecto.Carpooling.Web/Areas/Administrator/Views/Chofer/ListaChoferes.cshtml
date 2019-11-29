@@ -1,0 +1,33 @@
+﻿
+<table id="choferesDataTable" class="table table-striped table-bordered border-t0 w-100 text-nowrap">
+    <thead>
+        <tr>
+            <th class="wd-15p">Nombres</th>
+            <th class="wd-15p">Apellidos</th>
+            <th class="wd-20p">DNI</th>
+            <th class="wd-20p">Telefono</th>
+            <th class="wd-10p">Email</th>
+            <th class="wd-10p">Placa</th>
+            <th class="wd-10p">Modelo Vehiculo</th>
+            <th class="wd-25p">Editar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (IEnumerable<AmbienteWeb.Proyecto.Carpooling.Web.Areas.Administrator.ViewModels.ChoferViewModel>)Model)
+        {
+        <tr>
+            <td>@item.Nombres</td>
+            <td>@item.Apellidos</td>
+            <td>@item.DNI</td>
+            <td>@item.Telefono</td>
+            <td>@item.Email</td>
+            <td>@item.Placa</td>
+            <td>@item.ModeloVehiculo</td>
+            <td><button class="btn btn-danger m-t-5 m-b-5 editarChofer" data-employee="@item.Id">Editar</button></td>
+
+        </tr>
+        }
+        
+    </tbody>
+</table>

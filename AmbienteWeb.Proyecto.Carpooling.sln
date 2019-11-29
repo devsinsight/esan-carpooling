@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbienteWeb.Proyecto.Carpooling.Web", "AmbienteWeb.Proyecto.Carpooling.Web\AmbienteWeb.Proyecto.Carpooling.Web.csproj", "{A2493AB8-08A9-4324-8292-1F1880DB9E40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbienteWeb.Proyecto.Carpooling.DataAccess", "AmbienteWeb.Proyecto.Carpooling.DataAccess\AmbienteWeb.Proyecto.Carpooling.DataAccess.csproj", "{ACA0D235-95AC-4747-908F-809667C80536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbienteWeb.Proyecto.Carpooling.BusinessLogic", "AmbienteWeb.Proyecto.Carpooling.BusinessLogic\AmbienteWeb.Proyecto.Carpooling.BusinessLogic.csproj", "{62066B2A-3090-46E1-9CFA-7AEC3A1737A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A2493AB8-08A9-4324-8292-1F1880DB9E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2493AB8-08A9-4324-8292-1F1880DB9E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2493AB8-08A9-4324-8292-1F1880DB9E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA0D235-95AC-4747-908F-809667C80536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA0D235-95AC-4747-908F-809667C80536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA0D235-95AC-4747-908F-809667C80536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA0D235-95AC-4747-908F-809667C80536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62066B2A-3090-46E1-9CFA-7AEC3A1737A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62066B2A-3090-46E1-9CFA-7AEC3A1737A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62066B2A-3090-46E1-9CFA-7AEC3A1737A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62066B2A-3090-46E1-9CFA-7AEC3A1737A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

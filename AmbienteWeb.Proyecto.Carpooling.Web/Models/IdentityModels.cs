@@ -8,15 +8,17 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string RazonSocial { get; set; }
+        public string RUC { get; set; }
+        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
-            userIdentity.AddClaim(new Claim("FirstName", FirstName));
-            userIdentity.AddClaim(new Claim("LastName", LastName));
+            userIdentity.AddClaim(new Claim("RazonSocial", RazonSocial));
+            userIdentity.AddClaim(new Claim("RUC", RUC));
+
             return userIdentity;
         }
     }

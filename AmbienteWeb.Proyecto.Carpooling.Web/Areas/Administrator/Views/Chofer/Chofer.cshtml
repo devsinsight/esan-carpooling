@@ -1,0 +1,91 @@
+﻿@model AmbienteWeb.Proyecto.Carpooling.Web.Areas.Administrator.ViewModels.ChoferViewModel
+
+<div id="choferModal" class="modal fade">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header pd-x-20">
+                <h6 class="modal-title">Agregar Chofer</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body pd-20">
+                @using (Ajax.BeginForm("AgregarChofer", "Chofer", new AjaxOptions { HttpMethod = "POST", OnComplete = "OnComplete", UpdateTargetId = "listaChoferes" }, new { id = "frmChofer" }))
+                {
+                    @Html.HiddenFor(x => x.Id)
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Nombres, new { id = "nombres", placeholder = "Nombres", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Apellidos, new { id = "apellidos", placeholder = "Apellidos", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Telefono, new { id = "telefono", placeholder = "Telefono", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.DNI, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.DNI, new { id = "DNI", placeholder = "DNI", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.DNI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Email, new { id = "email", placeholder = "Email", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Placa, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Placa, new { id = "placa", placeholder = "Placa", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Placa, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.ModeloVehiculo, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.ModeloVehiculo, new { id = "modeloVehiculo", placeholder = "ModeloV ehiculo", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ModeloVehiculo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(x => x.Password, new { id = "password", placeholder = "Password", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(x => x.ConfirmPassword, new { id = "confirmPassword", placeholder = "Confirmar Password", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
