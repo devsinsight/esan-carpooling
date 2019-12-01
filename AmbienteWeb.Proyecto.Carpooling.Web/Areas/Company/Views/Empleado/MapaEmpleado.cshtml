@@ -1,0 +1,29 @@
+﻿@model AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.ViewModels.EmpleadoViewModel
+<style>
+    .pac-container {
+        z-index: 10000 !important;
+    }
+</style>
+<div id="mapaEmpleadoModal" class="modal fade">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header pd-x-20">
+                <h6 class="modal-title">Mapa Empleado</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body pd-20">
+                <input id="pac-input" class="controls" type="text" placeholder="Dirección..." style="width:100%" />
+                <div id="map" style="display:block;height:380px"></div>
+                @Html.HiddenFor(x => x.Id, new { id = "empleadoId" })
+                @Html.HiddenFor(x => x.Latitude, new { id = "latValue" })
+                @Html.HiddenFor(x => x.Longitude, new { id = "lngValue" })
+                <input type="button" id="btnSave" class="btn btn-primary btn-block" value="Guardar" />
+            </div>
+
+
+        </div>
+    </div>
+</div>

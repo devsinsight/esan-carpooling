@@ -83,7 +83,8 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Administrator.Controllers
                 DNI = chofer.DNI,
                 Email = chofer.Email,
                 Placa = chofer.Placa,
-                ModeloVehiculo = chofer.ModeloVehiculo
+                ModeloVehiculo = chofer.ModeloVehiculo,
+                IsEditMode = true
             };
 
 
@@ -111,7 +112,6 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Administrator.Controllers
             chofer.Nombres = model.Nombres;
             chofer.Apellidos = model.Apellidos;
             chofer.DNI = model.DNI;
-            chofer.Email = model.Email;
             chofer.Telefono = model.Telefono;
             chofer.Placa = model.Placa;
             chofer.ModeloVehiculo = model.ModeloVehiculo;

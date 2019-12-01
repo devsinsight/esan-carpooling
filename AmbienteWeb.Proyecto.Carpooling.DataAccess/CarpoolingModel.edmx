@@ -31,6 +31,8 @@
           <Property Name="Telefono" Type="varchar" MaxLength="18" />
           <Property Name="DNI" Type="varchar" MaxLength="8" />
           <Property Name="Email" Type="varchar" MaxLength="500" />
+          <Property Name="Latitude" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="Longitude" Type="numeric" Precision="18" Scale="6" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="Empresa">
@@ -62,7 +64,7 @@
           <Property Name="Nombre" Type="varchar" MaxLength="100" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
-        <Association Name="FK__Empleado__Empres__3F466844">
+        <Association Name="FK__Empleado__Empres__440B1D61">
           <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -104,7 +106,7 @@
           <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoPago" EntityType="Self.TipoPago" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Empleado__Empres__3F466844" Association="Self.FK__Empleado__Empres__3F466844">
+          <AssociationSet Name="FK__Empleado__Empres__440B1D61" Association="Self.FK__Empleado__Empres__440B1D61">
             <End Role="Empresa" EntitySet="Empresa" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
@@ -211,6 +213,8 @@
           <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <NavigationProperty Name="Empresa" Relationship="CarpoolingDbModel.FK__Empleado__Empres__3F466844" FromRole="Empleado" ToRole="Empresa" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="6" />
         </EntityType>
         <Association Name="FK__Empleado__Empres__3F466844">
           <End Type="CarpoolingDbModel.Empresa" Role="Empresa" Multiplicity="0..1" />
@@ -280,6 +284,8 @@
           <EntitySetMapping Name="Empleado">
             <EntityTypeMapping TypeName="CarpoolingDbModel.Empleado">
               <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DNI" ColumnName="DNI" />

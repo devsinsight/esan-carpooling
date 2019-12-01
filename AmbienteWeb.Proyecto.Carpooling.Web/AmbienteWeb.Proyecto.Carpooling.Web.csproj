@@ -186,10 +186,12 @@
     <Compile Include="Areas\Administrator\Controllers\ChoferController.cs" />
     <Compile Include="Areas\Administrator\Controllers\EmpresaController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\HorarioController.cs" />
     <Compile Include="Areas\Administrator\Controllers\VehiculoController.cs" />
     <Compile Include="Areas\Administrator\ViewModels\ContactoViewModel.cs" />
     <Compile Include="Areas\Administrator\ViewModels\ChoferViewModel.cs" />
     <Compile Include="Areas\Chofer\ChoferAreaRegistration.cs" />
+    <Compile Include="Areas\Chofer\Controllers\HomeController.cs" />
     <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
     <Compile Include="Areas\Company\Controllers\EmpleadoController.cs" />
     <Compile Include="Areas\Company\Controllers\EmpresaController.cs" />
@@ -4578,6 +4580,9 @@
     <Content Include="Areas\Administrator\Views\Chofer\Chofer.cshtml" />
     <Content Include="Areas\Administrator\Views\Chofer\ListaChoferes.cshtml" />
     <Content Include="Areas\Administrator\Views\Chofer\RegistroChoferes.cshtml" />
+    <Content Include="Areas\Chofer\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Empleado\MapaEmpleado.cshtml" />
+    <None Include="Properties\PublishProfiles\CarpoolingWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4630,7 +4635,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="Areas\Chofer\Controllers\" />
+    <Folder Include="Areas\Administrator\Views\Horario\" />
     <Folder Include="Areas\Chofer\Models\" />
     <Folder Include="Areas\Company\Models\" />
     <Folder Include="Areas\Company\Views\Chofer\" />

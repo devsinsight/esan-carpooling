@@ -22,6 +22,8 @@ namespace AmbienteWeb.Proyecto.Carpooling.DataAccess
         public string DNI { get; set; }
         public string Email { get; set; }
         public Nullable<bool> Estado { get; set; }
+        public Nullable<decimal> Latitude { get; set; }
+        public Nullable<decimal> Longitude { get; set; }
     
         public virtual Empresa Empresa { get; set; }
     }

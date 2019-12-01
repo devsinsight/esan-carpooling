@@ -42,6 +42,8 @@
                             @Html.ValidationMessageFor(model => model.DNI, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    if(!Model.IsEditMode) 
+                    {
                     <div class="form-group row">
                         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-md-3 col-form-label" })
                         <div class="col-md-9">
@@ -49,6 +51,7 @@
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    }
                     <div class="form-group row">
                         @Html.LabelFor(model => model.Placa, htmlAttributes: new { @class = "col-md-3 col-form-label" })
                         <div class="col-md-9">
@@ -59,7 +62,7 @@
                     <div class="form-group row">
                         @Html.LabelFor(model => model.ModeloVehiculo, htmlAttributes: new { @class = "col-md-3 col-form-label" })
                         <div class="col-md-9">
-                            @Html.TextBoxFor(x => x.ModeloVehiculo, new { id = "modeloVehiculo", placeholder = "ModeloV ehiculo", @class = "form-control" })
+                            @Html.TextBoxFor(x => x.ModeloVehiculo, new { id = "modeloVehiculo", placeholder = "Modelo Vehiculo", @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.ModeloVehiculo, "", new { @class = "text-danger" })
                         </div>
                     </div>

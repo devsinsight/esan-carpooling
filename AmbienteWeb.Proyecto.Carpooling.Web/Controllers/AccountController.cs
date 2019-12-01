@@ -478,9 +478,9 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Controllers
                 {
                     return RedirectToAction("Index", "Administrator/Home");
                 } 
-                else if (role == "EMPLOYEE")
+                else if (role == "DRIVER")
                 {
-
+                    return RedirectToAction("Index", "Chofer/Home");
                 }
                 else if (role == "COMPANY")
                 {

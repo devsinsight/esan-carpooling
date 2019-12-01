@@ -18,9 +18,6 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.Controllers
         public EmpleadoController() {
             _empleadoBusinessLogic = new EmpleadoBusinessLogic();
             _empresaBusinessLogic = new EmpresaBusinessLogic();
-
-            
-
         }
 
         private int GetEmpresaId() {
@@ -71,6 +68,38 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.Controllers
 
             return PartialView("Empleado", model);
         }
+
+        [HttpPost]
+        public ActionResult EditarMapaEmpleado(int id)
+        {
+            var empleado = _empleadoBusinessLogic.ObtenerEmpleadoPorId(id);
+            var model = new EmpleadoViewModel
+            {
+                Id = empleado.Id,
+                Apellidos = empleado.Apellidos,
+                Nombres = empleado.Nombres,
+                Telefono = empleado.Telefono,
+                DNI = empleado.DNI,
+                Email = empleado.Email,
+                Latitude = empleado.Latitude,
+                Longitude = empleado.Longitude
+            };
+
+            return PartialView("MapaEmpleado", model);
+        }
+
+        [HttpPost]
+        public ActionResult GrabarMapaEmpleado(EmpleadoViewModel model)
+        {
+            var empleado = _empleadoBusinessLogic.ObtenerEmpleadoPorId(model.Id);
+            empleado.Latitude = model.Latitude;
+            empleado.Longitude = model.Longitude;
+
+            _empleadoBusinessLogic.ActualizarEmpleado(empleado);
+
+            return PartialView("ListaEmpleados", GetEmpleados());
+        }
+
 
         public ActionResult AgregarEmpleado(EmpleadoViewModel model)
         {

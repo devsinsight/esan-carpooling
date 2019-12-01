@@ -17,5 +17,7 @@ namespace AmbienteWeb.Proyecto.Carpooling.Web.Areas.Company.ViewModels
         [Required]
         public string DNI { get; set; }
         public string Email { get; set; }
+        public decimal? Longitude { get; set; }
+        public decimal? Latitude { get; set; }
     }
 }
